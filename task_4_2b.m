@@ -21,8 +21,8 @@ signal = sin(2*pi*f*t) + noise;
 [acf_hamming, acf_hamming_lags] = xcorr(signal .* hamming(buffer_length)', 'biased');
 
 % Calculate PSD using Wiener-Khintchine theorem
-psd_rect = abs(fftshift(fft(acf_rect)));
-psd_hamming = abs(fftshift(fft(acf_hamming)));
+psd_rect = abs(fftshift(fft(acf_rect))) / buffer_length;
+psd_hamming = abs(fftshift(fft(acf_hamming))) /buffer_length;
 
 N1 = length(psd_rect);
 N2 = length(psd_hamming);

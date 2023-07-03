@@ -31,7 +31,7 @@ disp(['Minimum value: ' num2str(min_value)]);
 
 %To know base frequencies of an unknown signal find the PSD
 ACF = xcorr(signal, 'biased');
-PSD = abs(fftshift(fft(ACF)));
+PSD = abs(fftshift(fft(ACF))) / N;
 
 %Let's just guess what will be the frequency range
 rangeOfPSD = length(PSD);
